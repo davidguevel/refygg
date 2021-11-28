@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REFYGG</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylsheet">
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <header> ReF-Ygg </header>
+        <div class="content">
+            <div class="icon"><i class="bx bx-move"></i></div>
+            <!-- <div class="title">ReF-Ygg</div> -->
+
+            <p>
+                ici le contenu du cours:....
+
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur molestias, eius aperiam repellat
+                cupiditate distinctio perferendis magni, maxime quidem officia possimus, commodi asperiores excepturi?
+                Commodi provident expedita rerum rem. Doloribus!
+
+            </p>
+
+
+        </div>
+
+        <!-- <div id="wrapper">
+            <header>ReF-Ygg</header>
+            <div class="content">
+                <div class="icon"><i class="bx bx-move"></i></div>
+                <div class="title">ReF-Ygg</div>
+                <p>
+                ici le contenu du cours
+                </p>
+            </div> -->
+
+        <script>
+
+            const wrapper = document.querySelector(".wrapper"),
+                header = wrapper.querySelector("header")
+
+            function onDrag({ movementX, movementY }) {
+                let getStyle = window.getComputedStyle(wrapper);
+                let left = parseInt(getStyle.left); //getting left value of wrapper and parsing string to integer or number
+                let top = parseInt(getStyle.top); //getting top value of wrapper and parsing string to integer or number
+                wrapper.style.left = `${left + movementX}px`;
+                wrapper.style.top = `${top + movementY}px`;
+            }
+
+            header.addEventListener("mousedown", () => {
+                header.classList.add("active")
+                header.addEventListener("mousemove", onDrag);
+
+            });
+
+            document.addEventListener("mouseup", () => {
+                header.classList.remove("active")
+                header.removeEventListener("mousemove", onDrag);
+
+            });
+
+        </script>
+
+    </div>
+</body>
+
+</html>
